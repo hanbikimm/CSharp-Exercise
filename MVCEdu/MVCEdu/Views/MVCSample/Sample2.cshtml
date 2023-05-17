@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Sample2";
+}
+
+<h2>실습2. ViewBag, ViewData, TempData</h2>
+
+<div>
+    <div>
+        <h3>ViewBag</h3>
+        @foreach (var student in ViewBag.Students)
+        {
+            <div>@student</div>
+        }
+    </div>
+    <div>
+        <h3>ViewData</h3>
+        @foreach (var student in ViewData["Students"] as List<string>)
+        {
+            <div>@student</div>
+        }
+    </div>
+    <div>
+        <h3>TempData</h3>
+        @foreach (var student in TempData["Students"] as List<string>)
+        {
+            <div>@student</div>
+        }
+    </div>
+</div>
+
+

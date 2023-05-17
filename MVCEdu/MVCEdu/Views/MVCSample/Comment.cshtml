@@ -1,0 +1,10 @@
+﻿@model mvcEducation.Contract.Models.CommentModel
+
+@foreach (var item in Model.commentEntities)
+{
+    <div>
+        (@item.Relation) @item.Writer <br />
+        @item.Content <br/>
+        ---------------------------------------
+    </div>
+}

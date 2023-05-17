@@ -1,0 +1,31 @@
+﻿@model mvcEducation.Contract.Models.DetailModel
+@{
+    ViewBag.Title = "Sample3";
+}
+
+<h2>Partial View</h2>
+
+<div>
+    <h2>상세페이지</h2>
+    <div>
+        제목: 대한민국이란?
+    </div>
+    <div>
+        대한민국(大韓民國, 영어: Republic of Korea, ROK), 약칭 한국(韓國, 영어: South Korea), 남한(南韓), 남조선(南朝鮮)은 동아시아의 한반도 남부에 위치한 국가이다. 현정체제는 대한민국 제6공화국이다. 대한민국의 국기는 대한민국 국기법에 따라 태극기[5]이며, 국가는 관습상 애국가, 국화는 관습상 무궁화이다. 공용어는 한국어와 한국 수어이다. 수도는 서울이다. 인구는 2023년을 기준으로 약 5,174만 명으로, 전체 인구 중 절반이(약 2,624만 명) 수도권에 살고 있다.[6]
+        대한민국은 1948년 5월 10일 총선거를 통해 제헌국회를 구성하였고, 1948년 8월 15일 대한민국 정부를 수립하였다. 1948년 제헌 국회에서 대한민국의 국호를 계승하여 헌법에 명시하였고, 다시 1950년 1월 16일 국무원 고시 제7호 ‘국호 및 일부 지방명과 지도색 사용에 관한 건’에 의해 확정하였다.
+    </div>
+</div>
+<div>
+    @if (Model.commentModel.commentEntities.Count > 0)
+    {
+        <h2>Partial View 활용</h2>
+        @Html.Partial("Comment", Model.commentModel)
+    }
+    else
+    {
+        <div>
+            <h2>댓글이 없습니다.</h2>
+        </div>
+    }
+
+</div>

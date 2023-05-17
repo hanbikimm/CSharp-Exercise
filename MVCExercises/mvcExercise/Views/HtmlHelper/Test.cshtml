@@ -1,0 +1,78 @@
+﻿@model mvcExercise.Contract.Models.TestModel
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>HTML Helper Test</h2>
+@using (Html.BeginForm("Test", "HtmlHelper", FormMethod.Post, new { id = "frmSubmit" }))
+{
+    <div>
+        @Html.HiddenFor(m => m.testEntity.ID, new { Value = 1 })
+    </div>
+    <div>
+        <label>@Html.DisplayNameFor(m => m.testEntity.Title)</label>
+        @Html.TextBoxFor(m => m.testEntity.Title, new { id = "txtTitle" })
+    </div>
+    <div>
+        <label>Subject</label>
+        @Html.DropDownListFor(m => m.testEntity.Subject, new SelectList(ViewBag.SubjectList, "ValueField", "TextField"), "Select Subject")
+    </div>
+    <div>
+        <label>Description</label>
+        @Html.TextAreaFor(m => m.testEntity.Description, new { id = "txtDes" })
+    </div>
+    <div>
+        <label>Password</label>
+        @Html.PasswordFor(m => m.testEntity.Password, new { id = "txtPW" })
+    </div>
+    <div>
+        <label>Gender</label>
+        &nbsp; M:
+        @Html.RadioButtonFor(m => m.testEntity.Gender, "Male")
+        &nbsp; F:
+        @Html.RadioButtonFor(m => m.testEntity.Gender, "Female")
+
+    </div>
+    <div>
+        <label>Is Secret</label>
+        @Html.CheckBoxFor(m => m.testEntity.IsSecret, new { id = "boolSecret" })
+    </div>
+
+    <button onclick="Submit()">제출</button>
+}
+
+@if (!string.IsNullOrEmpty(Model.testEntity.Title))
+{
+    <div>
+        제출 결과
+    </div>
+    <div>
+        번호: @Model.testEntity.ID
+    </div>
+    <div>
+        제목: @Model.testEntity.Title
+    </div>
+    <div>
+        주제: @Model.testEntity.Subject
+    </div>
+    <div>
+        내용: @Model.testEntity.Description
+    </div>
+    <div>
+        성별: @Model.testEntity.Gender
+    </div>
+    <div>
+        비밀번호: @Model.testEntity.Password
+    </div>
+    <div>
+        비밀글 여부: @Model.testEntity.IsSecret
+    </div>
+
+
+}
+
+<script>
+    function Submit() {
+        $("#frmSubmit").submit;
+    }
+</script>

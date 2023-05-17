@@ -1,0 +1,57 @@
+﻿@model mvcEducation.Contract.Models.AccountModel
+@{
+    ViewBag.Title = "Sample1";
+}
+
+<h2>실습1. 데이터 입력</h2>
+@using (Html.BeginForm("Sample1", "MVCSample", FormMethod.Post, new { id = "frmLogin" }))
+{
+    <div>
+        <div>
+            <div>
+                <label>ID</label>
+                @Html.TextBoxFor(m => m.accountEntity.ID, new { id = "txtID", @class = "loginSample" })
+            </div>
+
+            <div>
+                <label>Password</label>
+                @Html.TextBoxFor(m => m.accountEntity.Password, new { id = "txtPW", @class = "loginSample" })
+            </div>
+        </div>
+        <div>
+            <button onclick="Submit()">로그인</button>
+        </div>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.accountEntity.ID) && !string.IsNullOrEmpty(Model.accountEntity.Password))
+{
+    <div>
+        결과
+    </div>
+    <div>
+        아이디: @Html.Label(Model.accountEntity.ID)
+    </div>
+    <div>
+        비밀번호: @Html.Label(Model.accountEntity.Password)
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.accountEntity.ID) && !string.IsNullOrEmpty(Model.accountEntity.Password))
+{
+    <div>
+        Session 저장 결과
+    </div>
+    <div>
+        아이디: @Session["ID"]
+    </div>
+    <div>
+        비밀번호: @Session["PW"]
+    </div>
+}
+
+<script>
+    function Submit() {
+        $("#frmLogin").submit;
+    }
+</script>

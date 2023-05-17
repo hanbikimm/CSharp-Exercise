@@ -1,0 +1,33 @@
+﻿@model mvcEducation.Contract.Models.AccountModel
+@{
+    ViewBag.Title = "SampleLogin";
+}
+
+<!-- 1) submit -->
+<h2>실습 1. 데이터 입력</h2>
+
+@using(Html.BeginForm("SampleLogin","Login",FormMethod.Post, new {id = "frmLogin" }))
+{
+<div>
+    <div>
+        <label>ID</label>
+        @Html.TextBoxFor(m => m.accountEntity.ID, new { id = "txtID", @class = "loginSample" })
+    </div>
+    <div>
+        <label>Password</label>
+        @Html.PasswordFor(m => m.accountEntity.Password, new { id = "txtPW", @class = "loginSample" })
+    </div>
+    <div>
+        <button onclick="Submit();"></button>
+    </div>
+</div>   
+
+@*@foreach (var item in ViewBag.test)*@
+}
+
+<script>
+    function Submit()
+    {
+        $("#frmLogin").submit();
+    }
+</script>
